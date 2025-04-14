@@ -22,14 +22,15 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
 
 
-    public boolean isElementPresent(By locator){
-        return driver.findElements(locator).size()>0; // return any element tru/false return
+    public boolean isElementPresent(By locator) {
+        return driver.findElements(locator).size() > 0; // return any element tru/false return
     }
 
     public void type(By locator, String text) {
@@ -41,12 +42,13 @@ public class TestBase {
     public void click(By locator) {
         driver.findElement(locator).click();
     }
+
     public boolean isAlertDisplayed() {
         Alert alert = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.alertIsPresent());
         return alert != null;
     }
-    }
+}
 
 
 

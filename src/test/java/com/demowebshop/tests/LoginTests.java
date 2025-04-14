@@ -22,5 +22,4 @@ public class LoginTests extends TestBase {
       //verify successful login
         Assert.assertTrue(isElementPresent(By.xpath("//button[.='Sign Out']")));
     }
-
 }

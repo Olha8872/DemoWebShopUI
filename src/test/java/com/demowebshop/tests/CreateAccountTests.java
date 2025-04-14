@@ -61,4 +61,5 @@ public class CreateAccountTests extends TestBase {
         // Verify successful registration
         Assert.assertTrue(isElementPresent(By.cssSelector(".message-error")));
     }
+
 }
