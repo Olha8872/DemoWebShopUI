@@ -1,46 +1,39 @@
 package com.demowebshop.fw;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import org.openqa.selenium.WebElement;
 
 public class BaseHelper {
-    WebDriver driver;
+
+    protected WebDriver driver;
 
     public BaseHelper(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void click(By locator) {
+
+    protected void click(By locator) {
         driver.findElement(locator).click();
     }
 
-    public void type(By locator, String text) {
-        if (text != null) {
-            click(locator);
-            driver.findElement(locator).clear();
-            driver.findElement(locator).sendKeys(text);
-        }
+
+    protected void type(By locator, String text) {
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
     }
 
-    public boolean isElementPresent(By locator) {
-        return driver.findElements(locator).size() > 0;
-    }
 
-    public boolean isAlertDisplayed() {
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
-        return alert != null;
-    }
-
-    public void pause(int millis) {
+    protected boolean isElementPresent(By locator) {
         try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            return driver.findElement(locator).isDisplayed();
+        } catch (Exception e) {
+            return false;
         }
+    }
+
+
+    protected WebElement findElement(By locator) {
+        return driver.findElement(locator);
     }
 }

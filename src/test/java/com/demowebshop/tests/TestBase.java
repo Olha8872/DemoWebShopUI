@@ -1,11 +1,12 @@
 package com.demowebshop.tests;
 
-import com.demowebshop.fw.ApplicationManager;
+import com.demowebshop.fw.AppManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
-    protected ApplicationManager app = new ApplicationManager();
+
+    protected static AppManager app = new AppManager("chrome");
 
     @BeforeMethod
     public void setUp() {
@@ -17,4 +18,3 @@ public class TestBase {
         app.stop();
     }
 }
-

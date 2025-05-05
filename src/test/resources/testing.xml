@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RegressionSuite" verbose="1" parallel="tests" thread-count="2">
+    <test name="UserTests">
+        <classes>
+            <class name="com.demowebshop.tests.CreateAccountTests"/>
+            <class name="com.demowebshop.tests.LoginTests"/>
+        </classes>
+    </test>
+    <test name="CartTests">
+        <classes>
+            <class name="com.demowebshop.tests.AddItemToCartTests"/>
+            <class name="com.demowebshop.tests.CheckItemDetailsInCartTest"/>
+        </classes>
+    </test>
+</suite>
+
